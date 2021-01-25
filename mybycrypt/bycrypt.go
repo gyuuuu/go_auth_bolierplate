@@ -2,7 +2,8 @@ package mybycrypt
 
 import "golang.org/x/crypto/bcrypt"
 
-func generate(password string) (string, error) {
+// Generate generate token
+func Generate(password string) (string, error) {
 	hash, err := bcrypt.GenerateFromPassword([]byte(password), bcrypt.DefaultCost)
 	if err != nil {
 		return "", err
@@ -10,7 +11,8 @@ func generate(password string) (string, error) {
 	return string(hash), nil
 }
 
-func compare(hash, password string) (bool, error) {
+// Compare compare token with password
+func Compare(hash, password string) (bool, error) {
 	err := bcrypt.CompareHashAndPassword([]byte(hash), []byte(password))
 	if err != nil {
 		if err == bcrypt.ErrMismatchedHashAndPassword {
