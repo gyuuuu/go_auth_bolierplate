@@ -1,4 +1,4 @@
-module jwt-auth
+module go_auth_bolierplate
 
 go 1.15
 
